@@ -1,13 +1,13 @@
+# Plano gratuito: a instância adormece após ~15 min sem tráfego (1.º pedido demora ~1 min)
+# e o SQLite é efémero (os dados perdem-se em cada deploy/reinício). Serve para demos.
+# Para produção: plano pago com disco persistente, ou PostgreSQL.
 services:
   - type: web
-    name: secure-web-api
+    name: secure-auth-api
     runtime: docker
+    plan: free
     dockerfilePath: ./Dockerfile
     healthCheckPath: /health
-    disk:
-      name: data
-      mountPath: /data
-      sizeGB: 1
     envVars:
       - key: SECRET_KEY
         generateValue: true
