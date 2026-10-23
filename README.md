@@ -36,7 +36,7 @@ uvicorn main:app --app-dir src
 
 ## Deploy
 - **Docker Compose:** `cp .env.example .env`, preencher `SECRET_KEY` (e SMTP) e `docker compose up -d` (dados persistidos no volume `/data`).
-- **Render:** ligar o repositório; o `render.yaml` cria o serviço com disco persistente e `SECRET_KEY` gerada. Definir `SMTP_*` no painel.
+- **Render:** ligar o repositório; o `render.yaml` cria o serviço no **plano gratuito** com `SECRET_KEY` gerada. No plano gratuito a instância adormece após ~15 min sem tráfego e o SQLite é efémero (serve para demo); para produção usar um plano pago com disco ou PostgreSQL. Definir `SMTP_*` no painel.
 - Em produção, colocar atrás de HTTPS (o Render já o faz).
 
 ## Testes
